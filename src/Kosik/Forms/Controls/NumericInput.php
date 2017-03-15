@@ -74,15 +74,15 @@ class NumericInput extends TextInput
     {
         $control = parent::getControl();
 
-        $control->class(self::CSS_CLASS);
+        $control->class('form-control ' . self::CSS_CLASS);
 
         $control->data(array(
             self::DATA_PREFIX . 'precision' => $this->getPrecision(),
             self::DATA_PREFIX . 'thousand-separator' => $this->getThousandSeparator(),
             self::DATA_PREFIX . 'decimal-separator' => $this->getDecimalSeparator(),
-            self::DATA_PREFIX . 'affixes-stay' => $this->getAffixesStay(),
-            self::DATA_PREFIX . 'allow-zero' => $this->getAllowZero(),
-            self::DATA_PREFIX . 'allow-negative' => $this->getAllowNegative()
+            self::DATA_PREFIX . 'affixes-stay' => $this->getAffixesStay() ? 'true' : 'false',
+            self::DATA_PREFIX . 'allow-zero' => $this->getAllowZero() ? 'true' : 'false',
+            self::DATA_PREFIX . 'allow-negative' => $this->getAllowNegative() ? 'true' : 'false'
         ));
 
         if($this->hasPrefix()) {
